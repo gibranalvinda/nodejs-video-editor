@@ -49,24 +49,8 @@ try {
               backgroundImagePath,
               tempOutputPath
             );
-  
-            // data.on('end', async () => {
-            //   await ReelsUpload(namafile, caption) // ==> ini function buat upload ke reels fb via puppeteer
-            // })
       })
     }
   } catch (err) {
     console.log(err)
   }
-
-// const inputVideoPath = 'input.mp4';
-// const outputVideoPath = 'output.mp4';
-// const backgroundImagePath = 'background.jpg';
-// const tempOutputPath = 'temp_output.mp4';
-
-// resizeAndOverlayVideo(
-//   inputVideoPath,
-//   outputVideoPath,
-//   backgroundImagePath,
-//   tempOutputPath
-// );

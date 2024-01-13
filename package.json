@@ -14,7 +14,6 @@
     "moment": "^2.29.4",
     "path": "^0.12.7",
     "progress": "^2.0.3",
-    "puppeteer": "^21.0.3",
     "fluent-ffmpeg": "^2.1.2"
   },
   "name": "nodejs-video-editor",
