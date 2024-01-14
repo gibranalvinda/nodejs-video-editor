@@ -11,7 +11,7 @@ import fs from 'fs';
 
 try {
     // Specify the TikTok video URL to be downloaded
-    const url = "https://www.tiktok.com/@kak_onyot/video/7019153718071332122";
+    const url = "https://www.tiktok.com/@semenit.idn/video/7279030038467448069";
 
     // Call TiktokDL function to download TikTok video
     const result = await TiktokDL(url);
@@ -49,21 +49,26 @@ try {
 
             // Create a write stream and save the video file
             const writer = fs.createWriteStream(path.resolve('download', `${namafile}.mp4`));
+            
             data.pipe(writer);
 
-            // Define paths and call the video processing function
-            const inputVideoPath = path.resolve('download', `${namafile}.mp4`);
-            if (!fs.existsSync('video_jadi')) fs.mkdirSync('video_jadi');
-            const outputVideoPath = path.resolve('video_jadi', `${namafile}.mp4`);
-            const backgroundImagePath = 'background.jpg';
-            const tempOutputPath = 'temp_output.mp4';
+            writer.on('finish', () => {
+                 // Define paths and call the video processing function
+                const inputVideoPath = path.resolve('download', `${namafile}.mp4`);
+                if (!fs.existsSync('video_jadi')) fs.mkdirSync('video_jadi');
 
-            resizeAndOverlayVideo(
-                inputVideoPath,
-                outputVideoPath,
-                backgroundImagePath,
-                tempOutputPath
-            );
+                const outputVideoPath = path.resolve('video_jadi', `${namafile}.mp4`);
+                const backgroundImagePath = 'background.jpg';
+                const tempOutputPath = 'temp_output.mp4';
+
+                resizeAndOverlayVideo(
+                    inputVideoPath,
+                    outputVideoPath,
+                    backgroundImagePath,
+                    tempOutputPath
+                );
+            });
+
         });
     }
 } catch (err) {
